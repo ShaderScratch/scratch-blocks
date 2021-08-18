@@ -32,6 +32,54 @@ goog.require('Blockly.Colours');
 
 goog.require('Blockly.constants');
 
+Blockly.Blocks['math_int'] = {
+  /**
+   * Block for int values.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "NUM",
+          "precision": 1
+        }
+      ],
+      "output": "int",
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "colour": Blockly.Colours.textField,
+      "colourSecondary": Blockly.Colours.textField,
+      "colourTertiary": Blockly.Colours.textField
+    });
+  }
+};
+
+Blockly.Blocks['math_float'] = {
+  /**
+   * Block for float values.
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "NUM",
+          "value": "0"
+        }
+      ],
+      "output": "float",
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND,
+      "colour": Blockly.Colours.textField,
+      "colourSecondary": Blockly.Colours.textField,
+      "colourTertiary": Blockly.Colours.textField
+    });
+  }
+};
+
 Blockly.Blocks['math_number'] = {
   /**
    * Block for generic numeric value.

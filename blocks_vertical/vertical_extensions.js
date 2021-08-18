@@ -116,6 +116,18 @@ Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_NUMBER = function() {
 };
 
 /**
+ * Extension to make represent a number-like reporter in Scratch-Blocks.
+ * That means the block has inline inputs and a round output shape, but not necessarily a 'Number'
+ * output type.
+ * @this {Blockly.Block}
+ * @readonly
+ */
+Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_NUMBERLIKE = function() {
+  this.setInputsInline(true);
+  this.setOutputShape(Blockly.OUTPUT_SHAPE_ROUND);
+};
+
+/**
  * Extension to make represent a string reporter in Scratch-Blocks.
  * That means the block has inline inputs, a round output shape, and a 'String'
  * output type.
@@ -245,6 +257,8 @@ Blockly.ScratchBlocks.VerticalExtensions.registerAll = function() {
   // Output shapes and types are related.
   Blockly.Extensions.register('output_number',
       Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_NUMBER);
+  Blockly.Extensions.register('output_numberlike',
+      Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_NUMBERLIKE);
   Blockly.Extensions.register('output_string',
       Blockly.ScratchBlocks.VerticalExtensions.OUTPUT_STRING);
   Blockly.Extensions.register('output_boolean',

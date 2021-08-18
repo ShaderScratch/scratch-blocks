@@ -33,28 +33,27 @@ Blockly.Blocks.defaultToolbox = `
   <category name="constructors" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
     <block type="constructors_int">
         <value name="INT">
-            <shadow type="math_integer">
+            <shadow type="math_float">
                 <field name="NUM">0</field>
             </shadow>
         </value>
     </block>
     <block type="constructors_float">
         <value name="FLOAT">
-            <shadow type="math_number">
+            <shadow type="math_float">
                 <field name="NUM">0</field>
             </shadow>
         </value>
     </block>
     ${(()=>{
       let xml = "";
-      const args = ["X","Y","Z","W"];
       for (let n=2;n<=4;n++){
-        for (let m=1;m<=n;m++){
+        for (let m of [1,n]){
           xml += `<block type="constructors_vec${n}_${m}">`;
           for (let k=0;k<m;k++){
             xml += `
-            <value name="${args[k]}">
-                <shadow type="math_number">
+            <value name="ARG${k}">
+                <shadow type="math_float">
                     <field name="NUM">0</field>
                 </shadow>
             </value>`;
