@@ -32,18 +32,18 @@ Blockly.Blocks.defaultToolbox = `
 <xml id="toolbox-categories" style="display: none">
   <category name="constructors" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
     <block type="constructors_int">
-        <value name="INT">
-            <shadow type="math_float">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
+      <value name="INT">
+        <shadow type="math_float">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
     </block>
     <block type="constructors_float">
-        <value name="FLOAT">
-            <shadow type="math_float">
-                <field name="NUM">0</field>
-            </shadow>
-        </value>
+      <value name="FLOAT">
+        <shadow type="math_float">
+          <field name="NUM">0</field>
+        </shadow>
+      </value>
     </block>
     ${(()=>{
       let xml = "";
@@ -53,9 +53,23 @@ Blockly.Blocks.defaultToolbox = `
           for (let k=0;k<m;k++){
             xml += `
             <value name="ARG${k}">
-                <shadow type="math_float">
-                    <field name="NUM">0</field>
-                </shadow>
+              <shadow type="math_float">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>`;
+          }
+          xml += `</block>`;
+        }
+      }
+      for (let [n,m] of [[2,2],[3,3],[4,4],[2,3],[3,2],[2,4],[4,2],[3,4],[4,3]]){
+        for (let k of [1,n*m]){
+          xml += `<block type="constructors_mat${n==m?n:n+"x"+m}_${k}">`;
+          for (let i=0;i<k;i++){
+            xml += `
+            <value name="ARG${i}">
+              <shadow type="math_float">
+                <field name="NUM">${i%n==Math.floor(i/n)?1:0}</field>
+              </shadow>
             </value>`;
           }
           xml += `</block>`;
